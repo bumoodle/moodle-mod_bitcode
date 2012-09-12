@@ -38,6 +38,7 @@ class mod_bitcode_renderer extends plugin_renderer_base {
      * @return void
      */
     public function render_bitcode_exchange(bitcode_exchange $bitcode) {
+        $this->page->set_focuscontrol('to');
         $output = $this->channel_select($bitcode->fromchannel, $bitcode->tochannel);
         $output .= $this->receiver();
         $output .= $this->transmitter();
@@ -78,7 +79,7 @@ class mod_bitcode_renderer extends plugin_renderer_base {
     protected function channel_select($fromchannel = 0, $tochannel = 1) {
 
         // Add the channel selector inputs:
-        $output = html_writer::start_tag('div', array('class' => 'channelselectors'));
+        $output = html_writer::start_tag('div', array('id' => 'channelselectors'));
     
         // "From channel"
         $output .= html_writer::label(get_string('fromchannel', 'mod_bitcode'), 'fromchannel', true, array('id' => 'fromchannellabel'));

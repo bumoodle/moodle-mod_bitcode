@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 #channelselectors {
-    border-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #fromchannel,
@@ -13,13 +13,23 @@
     margin: 10px;
     text-align: center;
     border: 1px dotted #444;
+    background-color: #eee;
+    margin-right: 10px;
 }
 
-#fromchannellabel,
-#tochannellabel {
+#page-mod-bitcode-view label {
+    font-family: 'Droid Sans';
     width: auto;
     height: 30px;
     margin: 10px;
+    font-size: 16px;
+}
+
+#tochannellabel, #fromchannellabel {
+    font-style: italic;
+}
+
+#to {
 }
 
 #from, #to {
@@ -27,6 +37,7 @@
     height: 200px;
     overflow: auto;
     padding: 10px;
+    background-color: #eee;
     
     font-family: monospace;
     font-size: 40px;
