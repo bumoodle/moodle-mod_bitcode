@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/bitcode/db" VERSION="20120912" COMMENT="XMLDB file for Moodle mod/bitcode"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="bitcode" COMMENT="core module properties for bitcode objects" NEXT="bitcode_messages">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Course bitcode activity belongs to" PREVIOUS="id" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="name field for moodle instances" PREVIOUS="course" NEXT="intro"/>
+        <FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="General introduction of the bitcode activity" PREVIOUS="name" NEXT="introformat"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Format of the intro field (MOODLE, HTML, MARKDOWN...)" PREVIOUS="intro" NEXT="timecreated"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="introformat" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timecreated"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="bitcode_messages" COMMENT="messages transmitted over bitcode exchange channels" PREVIOUS="bitcode">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="bitcodeid"/>
+        <FIELD NAME="bitcodeid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="The ID of the owning bitcode." PREVIOUS="id" NEXT="channel"/>
+        <FIELD NAME="channel" TYPE="int" LENGTH="5" NOTNULL="true" SEQUENCE="false" COMMENT="The number of the channel on which the user is currently communicating." PREVIOUS="bitcodeid" NEXT="message"/>
+        <FIELD NAME="message" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="the message being transmitted in the bitcode exchange" PREVIOUS="channel"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

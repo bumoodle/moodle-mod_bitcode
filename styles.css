@@ -1,0 +1,38 @@
+
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+
+#channelselectors {
+    border-bottom: 10px;
+}
+
+#fromchannel,
+#tochannel {
+    width: 5em;
+    height: 30px;
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+    border: 1px dotted #444;
+}
+
+#fromchannellabel,
+#tochannellabel {
+    width: auto;
+    height: 30px;
+    margin: 10px;
+}
+
+#from, #to {
+    width: 95%;
+    height: 200px;
+    overflow: auto;
+    padding: 10px;
+    
+    font-family: monospace;
+    font-size: 40px;
+
+    border: 1px dotted #444;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+
+}
